@@ -5,6 +5,11 @@
     <title>Flow 확장자 차단</title>
     <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/mvp.css">
+    <style>
+        .fixed-div {
+            padding-right: 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -15,23 +20,21 @@
     </header>
     <main id="content">
         <form name="extensionForm" id="form-extension" class="form-extension" method="post">
-            <table>
-                <tr>
-                    <th>고정확장자</th>
-                    <td>
-                        <div id="fixed-area1">
-                            <input type="checkbox" name="exe" id="fixed-exe">
-                            <label for="fixed-exe">bat</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div id="fixed-area2">
-                            <input type="checkbox" name="" id="">
-                            <label for="">cmd</label>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+            <div>
+                <span>고정 확장자</span>
+                <ul id="fixed-area" style="display: inline-flex;"></ul>
+            </div>
+
+            <div style="display: inline-flex; align-items: baseline;">
+                <span>커스텀 확장자</span>
+                <input id="customInput" type="text" placeholder="확장자 입력" value="" >
+                <button id="customAdd" style="padding: 0;">+추가</button>
+            </div>
+            <div id="customExts" style="width: 500px;height: auto;min-height: 200px;border: 2px solid;display: flex;flex-direction: row;flex-wrap: wrap;align-content: flex-start;">
+                <div style="border: 2px solid;border-radius: 7px;margin-right: 90%;">
+                    <span id="customCnt">1</span>/<span id="customMax" style="margin-right: 90%;">200</span>
+                </div>
+            </div>
         </form>
     </main>
 </div>
