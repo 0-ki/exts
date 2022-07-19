@@ -1,11 +1,11 @@
 package com.homework.flow.exts.repository.extension;
 
 import com.homework.flow.exts.domain.Extension;
+import com.homework.flow.exts.dto.extension.ExtensionDTO;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -38,11 +38,11 @@ public class ExtsRepositoryImpl implements ExtsRepository {
     }
 
     @Override
-    public void update(Extension extension) {
+    public void update(ExtensionDTO extensionDTO) {
         String sql = "update extension set name = :name,  flag_use= :flagUse, flag_fixed = :flagFixed" +
                 " where id = :id";
 
-        SqlParameterSource param = new BeanPropertySqlParameterSource(extension);
+        SqlParameterSource param = new BeanPropertySqlParameterSource(extensionDTO);
         jdbcTemplate.update(sql, param);
     }
 

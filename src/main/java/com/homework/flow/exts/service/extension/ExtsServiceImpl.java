@@ -1,6 +1,7 @@
 package com.homework.flow.exts.service.extension;
 
 import com.homework.flow.exts.domain.Extension;
+import com.homework.flow.exts.dto.extension.ExtensionDTO;
 import com.homework.flow.exts.repository.extension.ExtsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,8 @@ public class ExtsServiceImpl implements ExtsService {
     }
 
     @Override
-    public void update(Extension extension) {
-        repository.update(extension);
+    public void update(ExtensionDTO extensionDTO) {
+        repository.update(extensionDTO);
     }
 
     @Override
